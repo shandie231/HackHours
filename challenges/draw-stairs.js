@@ -18,8 +18,38 @@ drawStairs(6) ->
 */
 
 const drawStairs = n => {
+     //declare vaible to represent the spaces
+     let spaces = n-1;
+     //declare empty array to fill 
+     let output = [];
+     let newFloor = [];
+     //iterate to create the indiviual floors
+     //for(let k = 0; k<n; k++){
+          if(spaces > 0){
+               for(let j = 0; j<spaces; j++){
+                    output.push(" ");
+                    console.log(output);
+               }
+               for(let i = spaces; i<n; i++){
+                    output.push("*");
+                    console.log(output);
+               }
+               newFloor = [output].toString();
+          }
+     //}
 
+     // for(let i = 0; i<n; i++){
+     //      if(spaces > 0){
+
+     //      }
+     //      output.push("*");
+     // }
+     //newFloor = [[newFloor],[output]];
+     return newFloor;
+     
 };
+
+console.log(drawStairs(6));
 
 /* 
 
