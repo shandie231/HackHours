@@ -21,33 +21,30 @@ const drawStairs = n => {
      //declare vaible to represent the spaces
      let spaces = n-1;
      //declare empty array to fill 
-     let output = [];
-     let newFloor = [];
-     //iterate to create the indiviual floors
-     //for(let k = 0; k<n; k++){
-          if(spaces > 0){
-               for(let j = 0; j<spaces; j++){
-                    output.push(" ");
-                    console.log(output);
-               }
-               for(let i = spaces; i<n; i++){
-                    output.push("*");
-                    console.log(output);
-               }
-               newFloor = [output].toString();
-          }
-     //}
+     let output = "";
+     let newFloor = "";
+     let arrString = "";
 
+     //create empty array filled iwth spaces from n
      // for(let i = 0; i<n; i++){
-     //      if(spaces > 0){
-
-     //      }
-     //      output.push("*");
+     //      output += " ";
      // }
-     //newFloor = [[newFloor],[output]];
-     return newFloor;
-     
-};
+     //iterate over output array and fill with spaces and astrics
+     for(let y = 0; y<n; y++){
+          for(let x = 0; x< n + y; x++){
+               if(x === n){
+                    break;
+               }
+               if(x >= n - y - 1){
+                    output += "*";
+               }else{
+                    output += " ";
+               }
+          }
+          output += '\n';
+     }
+     return output;
+}
 
 console.log(drawStairs(6));
 
