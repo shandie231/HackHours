@@ -33,7 +33,7 @@ function binToDec(binString){
             //exponent is the inverse of the index
                 //index: 0,1,2,3,4,5
                 //exponent: 5,4,3,3,2,1
-        currNum = currNum * (2 ** exponent);
+        currNum *= (2 ** exponent);
         //decrememt the index after each run
         exponent--;
         //combine the currNums from each iteration to get the final total
@@ -51,7 +51,8 @@ console.log(binToDec('11'))  //-> 3
 console.log(binToDec('100')) //-> 4
 console.log(binToDec('101')) //-> 5
 console.log(binToDec('0101')) 
-console.log(binToDec('0101'))//-> 5
+console.log(binToDec('0101'))
+console.log(binToDec('101010'))
 
 
 
