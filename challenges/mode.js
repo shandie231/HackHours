@@ -16,6 +16,7 @@ const mode = array => {
     let numHolder = {};
     let outputNum = 0;
     //iterate through array setting the array values to the keys and the number of each number as the value
+    
     if(array.length === 1){
         return array[0];
     }
@@ -39,12 +40,16 @@ const mode = array => {
         }
     
     }
+    if(keys.length === 1){
+        outputNum = keys[0];
+    }
     return outputNum;
 };
 console.log(mode([3, 2, 4, 3])) //-> 3
 console.log(mode([7, 5, 8, 8, 2, 5]))// -> 8
 console.log(mode([]))// -> 8
 console.log(mode([1,1,1,1]))// -> 8
+console.log(-Infinity + 1);
 
 /*
 
