@@ -5,8 +5,29 @@
 */
 
 const fastCache = func => {
+    ///create an empty object
+    let cacheObj = {};
+    console.log(cacheObj);
+
+
+    return function(arg){
+        
+        console.log(arg);
+        //it sounds like i need to use reduce...
+        cacheObj[arg] = func(arg);
+        console.log(cacheObj);
+        return cacheObj;
+    }
+
   
 };
+
+const newFunc = (arg) => {
+    return arg * arg;
+}
+
+console.log(fastCache(newFunc(2)));
+
 
 /*
  Extension: Rewrite fastCache so it can handle array or object input, and any number of arguments.
