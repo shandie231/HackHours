@@ -31,16 +31,16 @@ ex: [3, 4, 7, 6, 8, 5, 6] should return 6
 */
 
 const duplicateNumberAdvanced = array => {
-    let poppedVal = array.pop();
-    let outputVal;
-    if(array[0] === undefined) return "No Duplicates";
-
-    if(array.includes(poppedVal)){
-        outputVal = poppedVal;
-        return outputVal;
-    }else{
-        return duplicateNumberAdvanced(array);
+    
+    const cache = new Set();
+    
+    for(let i = 0; i<array.length; i++){
+        const numberElement = array[i];
+        if(cache.has(numberElement)) return array[i];
+        cache.add(numberElement);
     }
+    return null;
+
 };
 console.log(duplicateNumberAdvanced([3, 4, 7, 6, 8, 5, 6]));
 
