@@ -15,11 +15,51 @@
  */
 
 function Stack() {
+    let outputStack = [];
+    this.push = function(arg){
+        if(outputStack.length>0){
+            outputStack[outputStack.length] = arg;
+        }else{
+            outputStack[0] = arg;
+        }
+        return outputStack;
+    }
+    this.pop = function(){
+        const poppedStack = [];
+        if(outputStack.length<1){
+            return `Nothing in stack`;
+        }else{
+            for(let i = 0; i<outputStack.length -1; i++){
+                poppedStack[i] = outputStack[i];
+            }
+            outputStack = poppedStack;
+            return outputStack;
+        }
+    }
+    
 
+    
 }
 
 function Queue() {
+    const outputStack = [];
+    this.enqueue = function(arg){
+        
+    }
+    this.dequeue = function(){
+        
+    }
 
 }
+const newStack = new Stack();
+
+console.log(newStack.push(1));
+console.log(newStack.push(2));
+console.log(newStack.push(3));
+
+console.log(newStack.pop());
+console.log(newStack.pop());
+console.log(newStack.pop());
+console.log(newStack.pop());
 
 module.exports = { Stack, Queue };
