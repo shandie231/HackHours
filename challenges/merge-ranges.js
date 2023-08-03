@@ -25,7 +25,35 @@ After sorting, think about how to merge the intervals together.
 */
 
 const mergeRanges = intervals => {
+    //need an output array
+    const outputArray = [];
+
+    //split up the array into indiviual arrays
+    //look at index of 0 1 compare to index of 1 0. If greater set 0 1 to 1 1  
+        //if less have indx 0 1 look at 2 0
+
+        let currentArray = intervals[0];
+        console.log(currentArray)
+
+        // for(let i = 0; i<intervals.length; i++){
+        //     let currArr = intervals[i];
+        //     if(!intervals[i+1]) return outputArray;
+        //     for(let j = 1; j<intervals.length; i++){
+        //         console.log(intervals[i])
+        //         if(currArr[1] < intervals[j][0]){
+        //             continue;
+        //         }else{
+        //             currArr[1] = intervals[j][1];
+        //             outputArray.push(currArr);
+        //         }
+        //     }
+        // }
+        return outputArray;
+
   
 };
+
+intervals = [[0, 1], [3, 5], [4, 8], [10, 12], [9, 10]]
+console.log(mergeRanges(intervals)); 
 
 module.exports = {mergeRanges};
