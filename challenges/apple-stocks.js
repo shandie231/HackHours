@@ -21,7 +21,38 @@ calculate profit along the array.
 */
 
 const highestProfit = apple_stock => {
+    //where to buy
+    let buy = 0;
 
+    //the profit
+    let profit = 0 ;
+
+    //curerntBuying index
+    let buyIndex = apple_stock.length-1;
+    console.log(buyIndex);
+
+    apple_stock.forEach(curr => {
+        console.log(curr)
+        console.log(buyIndex)
+        console.log(apple_stock.length-buyIndex)
+        console.log(apple_stock.length)
+
+
+        for(let i = apple_stock.length-buyIndex; i<apple_stock.length; i++){
+            console.log(apple_stock[i])
+            if(curr < apple_stock[i]){
+                console.log(curr)
+                console.log(apple_stock[i])
+                if(profit < curr - apple_stock[i]) profit = curr - apple_stock[i];
+            }else{
+                
+            }
+            console.log(profit)
+        }
+        buyIndex--;
+
+    })
 }
 
+console.log(highestProfit([1000, 500, 1500, 2000, 0]))
 module.exports = {highestProfit}
