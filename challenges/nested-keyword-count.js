@@ -9,9 +9,23 @@ keywordCount(['blah', 'key', ['inside', ['really inside']]], 'lol') -> 0
 
 */
 
-const keywordCount = (array, keyword) => {
+const keywordCount = (array, keyword, count = 0) => {
+
+    array.forEach(el => {
+        if(Array.isArray(el)) count = keywordCount(el, keyword, count);
+        if(el === keyword) ++count;
+    });
+    return count;
+
   
 };
+console.log(keywordCount(['bye', 'hi', ['cool', 'hi']], 'hi'));
+// -> 2 because 'hi' appears twice
+console.log(keywordCount(['x', 'y', ['x', 'x'], 'a'], 'x'));
+// -> 3
+console.log(keywordCount(['blah', 'key', ['inside', ['really inside']]], 'lol'));
+// -> 0
+
 
 /*
 
@@ -26,8 +40,23 @@ keywordMode([['ace', 'cool'], ['hi'], 'cool']) -> ['cool']
 
 */
 
-const keywordMode = array => {
+const keywordMode = (array, obj = {}) => {
+    
+    array.forEach(el => {
+        if(Array.isArray(el)) keywordMode(el, obj);
+        if(!obj[el]) {
+            obj[el] = 1;
+        }
+        else obj[el]++;
+    });
+    return obj;
+    
   
 };
+
+console.log(keywordMode([['cars', 'bat'], 'apple', 'bat', 'cars'])); 
+//-> ['bat', 'cars']
+console.log(keywordMode([['ace', 'cool'], ['hi'], 'cool'])); 
+//-> ['cool']
 
 module.exports = {keywordCount, keywordMode};
