@@ -18,8 +18,35 @@
 
 
 const twoSum = (arr, target) => { 
+  const targetArray = [];
+  const outObj = {};
+
+  for(let i = 0; i<arr.length; i++){
+    targetArray.push(target - arr[i]);
+
+    if(!outObj[targetArray[i]]) outObj[targetArray[i]] = 1;
+    else outObj[targetArray[i]]++;
+
+    if(!outObj[arr[i]]) outObj[arr[i]] = 1;
+    else outObj[arr[i]]++;
+
+    if(outObj[arr[i]] >= 2 || outObj[targetArray[i]] >= 2) return true;
+
+  
+  }
+  return false;
 
 }
+
+
+const nums = [2, 5, 11, 15]
+console.log(twoSum(nums, 7));
+//-> true
+
+const nums2 = [11, 15, 2, 5]
+console.log(twoSum(nums2, 7));
+
+console.log(twoSum(nums, 9))// -> false
 
 /*
 Extension:
