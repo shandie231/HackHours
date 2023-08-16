@@ -10,8 +10,30 @@ findInOrderedSet(nums, 2);  -> false
 */
 
 const findInOrderedSet = (array, target) => {
+  let startIndex = 0;
+  let endIndex = array.length - 1;
+
+
+
+  while(startIndex <= endIndex){
+
+    let middleIndex = Math.floor(((startIndex + endIndex)/2));
+    if(array[middleIndex] === target){
+      return true;
+    }else if(array[middleIndex] < target){
+      startIndex = middleIndex + 1;
+    }else{
+      endIndex = middleIndex - 1;
+    }
+    middleIndex = Math.floor(((startIndex + endIndex)/2));
+  }
+  return false;
 
 };
+
+const nums = [-3, 0, 8, 13, 37]
+console.log(findInOrderedSet(nums, 0));//  -> true
+console.log(findInOrderedSet(nums, 2));//  -> false
 
 
 /*
@@ -34,7 +56,22 @@ findIn2dMatrix(matrix, 42); -> false
 */
 
 const findIn2dMatrix = (matrix, target) => {
-
+  let output;
+  for(let i = 0; i<matrix.length; i++){
+    output = findInOrderedSet(matrix[i], target);
+    if(output === true){
+      return true;
+    }
+  }
+  return false;
 };
+
+const matrix = [
+  [-3, -1,  2,  4,  5],
+  [ 6,  7,  8, 13, 37],
+  [41, 49, 50, 61, 75]
+];
+console.log(findIn2dMatrix(matrix, 13)); //-> true
+console.log(findIn2dMatrix(matrix, 42)); //-> false
 
 module.exports = { findInOrderedSet, findIn2dMatrix };
