@@ -24,8 +24,25 @@ and has 3 links.
 */
 
 const bstHeight = tree => {
+
   
+
+  return tree;
 };
+
+const newTree = new BinarySearchTree(4);
+//left side
+newTree.left = new BinarySearchTree(2);
+newTree.left.left = new BinarySearchTree(1);
+newTree.left.right = new BinarySearchTree(3);
+//right side
+newTree.right = new BinarySearchTree(7);
+newTree.right.right = new BinarySearchTree(9);
+newTree.right.right.left = new BinarySearchTree(8);
+
+
+console.log(newTree);
+console.log(bstHeight(newTree));
 
 /*
   Extension:
