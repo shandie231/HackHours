@@ -1,4 +1,4 @@
-function BinarySearchTree(value) {
+function BinaryTree(value) {
   this.value = value;
   this.right = null;
   this.left = null;
@@ -37,7 +37,43 @@ Utilizing recursion is not necessary, nor recommended.
 
 const bfs = (root, callback) => {
   
+  let queue = [];
+  queue.push(root);
+  let tempBST;
+  
+
+  while(queue.length !== 0){
+    tempBST = queue.shift();
+    
+    if(tempBST.left !== null){
+      queue.push(tempBST.left);
+    }
+    if(tempBST.right !== null){
+      queue.push(tempBST.right);
+    }
+  }
+
+  console.log(tempBST);
 };
+
+
+const bst = new BinaryTree(4);
+bst.left = new BinaryTree(2);
+bst.left.left = new BinaryTree(1);
+bst.left.right = new BinaryTree(3);
+bst.right = new BinaryTree(7);
+bst.right.right = new BinaryTree(9);
+bst.right.right.left = new BinaryTree(8);
+console.log(bst);
+
+const addTwo = (x) => {
+ return x * x;
+}
+console.log(bfs(bst, addTwo))
+
+
+
+
 
 /*
 
