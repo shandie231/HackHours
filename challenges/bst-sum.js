@@ -14,8 +14,40 @@ function.
 */
 
 const bstSum = root => {
+  let sum = 0;
+  let count = 0;
+
+
+  if(root.left !== null){
+    count++;
+     sum += bstSum(root.left);
+  }
   
+  if(root.right !== null){
+    count++;
+     sum += bstSum(root.right);
+    
+  }
+
+
+
+  return root.value;
+
 };
+
+const newTree = new BinarySearchTree(4);
+//left side
+newTree.left = new BinarySearchTree(2);
+newTree.left.left = new BinarySearchTree(1);
+newTree.left.right = new BinarySearchTree(3);
+//right side
+newTree.right = new BinarySearchTree(7);
+newTree.right.right = new BinarySearchTree(9);
+newTree.right.right.left = new BinarySearchTree(8);
+
+console.log(newTree);
+console.log(bstSum(newTree));
+
 
 /*
 
