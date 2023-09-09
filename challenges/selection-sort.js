@@ -15,7 +15,17 @@ whole array, the array will end up being sorted.
 
 const selectionSort = array => {
   
+  for(let i = 0, j = array.length - 1; i<j; i++, j--){
+    let temp = array[j];
+    array[j] = array[i];
+    array[i] = temp;
+  }
+  return array;
+  
 };
+
+const numArray = [1,2,3,4,5];
+console.log(selectionSort(numArray));
 
 /*
 
