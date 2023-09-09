@@ -32,6 +32,28 @@ function ListNode(val) {
 This method should add a node to the end of the doubly linked list
  */
 DoublyLinkedList.prototype.add = function (val) {
+  let temp = this.head;
+  let current = this.head
+  console.log(this.head);
+
+  if(!this.head){
+    this.head = new ListNode(val);
+    return;
+  };
+console.log(current)
+  while(current.next){
+    temp = current;
+    current = current.next;
+    if(current === null){
+      current = new ListNode(val);
+      return this.head;
+    }
+
+  }
+
+
+ 
+return;
 
 };
 
@@ -41,5 +63,11 @@ This method should remove the first instance of a node with the inputted value f
 DoublyLinkedList.prototype.remove = function (val) {
 
 };
+
+const newList = new DoublyLinkedList();
+newList.add(4);
+newList.add(5);
+
+console.log(newList);
 
 module.exports = { DoublyLinkedList };
