@@ -13,7 +13,30 @@
 */
 
 const mergeSort = array => {
+  let current = [];
+  let start = 0;
+  let end = array.length - 1;
+  let mid = Math.floor(end / 2);
+
+  for(let i = 0; i<array.length; i++){
+    current.push([array[i]]);
+    console.log(current)
+    if(i % 2 === 1){
+      console.log(current[i]);
+      current[i-1].push(current[i]);
+      console.log(current);
+    }
+  }
+
+
+
+  return current;
+
+
 
 }
+
+const newArray = [7,3,5,2,6,1,4];
+console.log(mergeSort(newArray));
 
 module.exports = { mergeSort };
