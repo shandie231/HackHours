@@ -10,6 +10,20 @@ longestCommonPrefix(["dog","racecar","car"]) --> "" (There is no common prefix a
 
 const longestCommonPrefix = (strs) => {
   
+
+
+
+
+  
+  
+
+  
+
+
+  
 };
+
+const arrString = ["flower","flow","flight"];
+console.log(longestCommonPrefix(arrString));
 
 module.exports = { longestCommonPrefix };
