@@ -31,7 +31,33 @@ characters. How do we keep track of this "window"?
 */
 
 const substringNonrepeating = str => {
+
+  if(!str.length) return 0;
+  let longestString = "";
+  let strArray = [];
+  let valTrack = {};
+
+  for(let i = 0; i < str.length; i++){
+    if(longestString.includes(str[i])){
+      strArray.push(longestString);
+      i = i - longestString.length - 1;
+      longestString = '';
+    }
+    console.log(longestString);
+    console.log(str[i])
+    longestString.concat(str[i]);
+    console.log(longestString)
+    
+
+  }
+  console.log(strArray);
+  return longestString.length;
   
 };
+
+console.log(substringNonrepeating('abcabcbb'))
+// console.log(substringNonrepeating('bbbbb'))
+// console.log(substringNonrepeating('pwwkew'))
+// console.log(substringNonrepeating(''))
 
 module.exports = {substringNonrepeating};
