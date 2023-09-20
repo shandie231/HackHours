@@ -45,7 +45,7 @@ const substringNonrepeating = str => {
     }
     console.log(longestString);
     console.log(str[i])
-    longestString.concat(str[i]);
+    longestString.concat(' ', str[i]);
     console.log(longestString)
     
 
