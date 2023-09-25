@@ -26,9 +26,18 @@ of 6.
 */
 
 const subsetSumClosest = (nums, target) => {
-  
+  let closestVal = 0;
+
+  while(target !== 0){
+    
+  }
+
+
+
+
 };
 
+console.log(subsetSumClosest([3, 7, 8, 2], 5));
 /*
 
 Extension:
