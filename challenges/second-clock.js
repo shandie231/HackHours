@@ -2,7 +2,7 @@
 
 Write a clock class, with two methods: start and stop.
 
-----------
+----------//
 start: upon invocation, invokes a callback (this.cb, defined in the constructor)
 on an argument every second, with the argument to the callback being:
 
