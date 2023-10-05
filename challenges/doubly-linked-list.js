@@ -11,7 +11,7 @@
   null <-> 4 <-> 9 <-> 2 <-> 1 <-> 6 <-> null
 
   Example after using 'remove' method to remove 2
-  null <-> 4 <-> 9 <-> 1 <-> 6 <-> null
+  null <-> 4 <-> 9 <-> 1 <-> 6 <-> nullsdf
 
   NOTE: must use non-arrow functions for object constructors and prototype methods
   @see: https://dmitripavlutin.com/when-not-to-use-arrow-functions-in-javascript/
