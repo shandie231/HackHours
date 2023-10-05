@@ -10,7 +10,7 @@ Given the root of a binary search tree, reverse the binary search tree in-place
 and return the root. Reverse the tree so that for each node, every number on the
 left is greater and every number on the right is lesser.
 
-For example, the original tree:
+For example, the original tree:df
 
      4
    /   \
