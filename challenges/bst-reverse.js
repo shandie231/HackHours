@@ -106,7 +106,36 @@ Math.ceil function)
 */
 
 const sortedArrayToBST = arr => {
+
+  if(!arr.length) return null;
+  //make a tree constructor
+  function diyBST(val){
+    this.value = val;
+    this.left = null;
+    this.right = null;
+  }
+  const middleVal = Math.ceil((arr.length-1)/2);
+  const rightArrLength = (Math.ceil((arr.length)/2));
+  const rightArray = arr.splice(Math.ceil(middleVal, rightArrLength));
+  const newRoot = rightArray.splice(0, 1);
+  const outputTree = new diyBST(newRoot[0]);
+  
+  outputTree.left = sortedArrayToBST(arr);
+  outputTree.right = sortedArrayToBST(rightArray);
+  //pass down left arry 
+
+  return outputTree;
+
+    //split array in two for left and right side and center element(if two length.ceil to get greater element)
+    //set resursive call passing in left array, and second passing in right array
+    //return the tree
+
+  
+
   
 };
 
+
+console.log(sortedArrayToBST([0, 3, 4, 6, 8, 9]));
+console.log(sortedArrayToBST([1, 4, 7, 8]));
 module.exports = {BinarySearchTree, bstReverse, sortedArrayToBST};

@@ -1,7 +1,16 @@
+/*
+give a binary search tree, return an array of the perimeter of the tree. Perimeter should start at the root and tranverse couter-clockwise. 
+Input:
+                    4
+                  /   \
+                3       8
+              /   \    /  \
+            7      6  5   11
+          /  \    /      /   \
+         2    9  1     10     12
 
-
-
-
+Output: [4,3,7,2,9,1,5,10,12,11,8]
+*/
 function bst(val){
   this.value = val;
   this.left = null;
