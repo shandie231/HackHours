@@ -119,7 +119,7 @@ const sortedArrayToBST = arr => {
   const rightArray = arr.splice(Math.ceil(middleVal, rightArrLength));
   const newRoot = rightArray.splice(0, 1);
   const outputTree = new diyBST(newRoot[0]);
-  
+
   outputTree.left = sortedArrayToBST(arr);
   outputTree.right = sortedArrayToBST(rightArray);
   //pass down left arry 
@@ -128,7 +128,7 @@ const sortedArrayToBST = arr => {
 
     //split array in two for left and right side and center element(if two length.ceil to get greater element)
     //set resursive call passing in left array, and second passing in right array
-    //return the tree
+    //return the treesdf
 
   
 
