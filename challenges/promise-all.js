@@ -16,7 +16,7 @@ value. Calling "reject" on a value will error-out with the value.
 
 See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 for info on the Promise constructor.
-dfgds
+dfgdssdf
 */
 
 const promiseAll = promises => {
