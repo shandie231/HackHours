@@ -23,58 +23,64 @@ Explanation: The subarray [5,4,-1,7,8] has the largest sum 23.
 //if negative continue to check recursively and keep track of the negatives
 
 
-const maxSubarrayLeet = (arr) => {
+const maxSubarrayLeet = (nums) => {
+  if(!Array.isArray(nums)) return undefined;
   let start = 0;
   let pointer = start;
   let end = start;
   let total = 0;
-  let maxTotal = 0;
-  let outputArr = [];
-  for(let i = start; i < arr.length + 1; i++){
+  let maxTotal = nums[start];
+  let outputArr = nums.slice(start, start + 1);
+  for(let i = start; i < nums.length + 1; i++){
     //check the start value and make sure it is not a negative. - If it is a negative, look at the next value, if the next value is greater than the current index set start to the next value
-    if(Math.sign(arr[start]) === -1){
+    if(Math.sign(nums[start]) === -1){
       //check if the next index is greater than the current
-      if(arr[i] < arr[i+1]){
+      if(nums[i] < nums[i+1]){
         //set start to the next index
         start = i + 1;
         pointer = start + 1;
-        total += arr[start];
+        total = nums[start];
+        maxTotal = total;
+        
         //set single index to output array
-        outputArr = arr.slice(start, pointer);
+        outputArr = nums.slice(start, pointer);
       }
     }else{
       //conditional to check for
       //* If the next index is negetive 
       //*   AND if the next index is less than the current
       //* OR if at the last index in the array
-      if(((Math.sign(arr[pointer]) === -1) && (Math.abs(arr[pointer]) > arr[pointer - 1])) || arr[pointer] === undefined){
+      if(((Math.sign(nums[pointer]) === -1) && (Math.abs(nums[pointer]) > nums[pointer - 1])) || nums[pointer] === undefined){
         //this conditional will set the output array, and reset the pointers and total
         end = i;
         //check if the current total is greater than the cached total
         if(total > maxTotal){
           maxTotal = total;
-          outputArr = arr.slice(start, end);
+          outputArr = nums.slice(start, end);
         }
         start = pointer + 1;
         i = start;
-        total = arr[start];
+        total = nums[start];
         pointer = start + 1;
       }else{ 
         //if that complex conditional fails, add the next index to the total and increment the pointer 
-        total += arr[pointer];
+        total += nums[pointer];
         pointer++;
       }
     }
   }
-  return outputArr;
+  return maxTotal;
 }
 
 
 const array1 = [-2,1,-3,4,-1,2,1,-5,4];
-const array2 = [1];
+const array2 = [-1];
 const array3 = [5,4,-1,7,8];
-const array4 = [-5, -2, -6, -1, -6]
+const array4 = [-5, -2, -6, -1, -6];
+const array5 = [1,2,-1,-2,2,1,-2,1,4,-5,4];
+
 console.log(maxSubarrayLeet(array1));
 console.log(maxSubarrayLeet(array2));
 console.log(maxSubarrayLeet(array3));
 console.log(maxSubarrayLeet(array4));
+console.log(maxSubarrayLeet(array5));
