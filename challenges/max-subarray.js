@@ -116,7 +116,9 @@ const kadanesMaxSubarray = (nums) => {
       //* If the next index is negetive 
       //*   AND if the next index is less than the current
       //* OR if at the last index in the array
-      if(((Math.sign(nums[pointer]) === -1) && (Math.abs(nums[pointer]) > nums[pointer - 1])) || nums[pointer] === undefined){
+      console.log(total);
+      console.log(nums[pointer])
+      if(((Math.sign(nums[pointer]) === -1) && (total <= Math.abs(nums[pointer]))) || nums[pointer] === undefined){
         //this conditional will set the output array, and reset the pointers and total
         end = i;
         //check if the current total is greater than the cached total
@@ -135,9 +137,29 @@ const kadanesMaxSubarray = (nums) => {
       }
     }
   }
-  return maxTotal;
+  return outputArr;
 }
 
+// const array1 = [-2,1,-3,4,-1,2,1,-5,4];
+// const array2 = [1];
+// const array3 = [5,4,-1,7,8];
+// const array4 = [-100, -20, -5, -10];
+// const array5 = [1,2,-1,-2,2,1,-2,1,4,-5,4];
+// const array6 = [1, -2, 3, 10, -4, 7, 2, -5]
+
+console.log(maxSubarray(array1));
+console.log(maxSubarray(array2));
+console.log(maxSubarray(array3));
+console.log(maxSubarray(array4));
+console.log(maxSubarray(array5));
+console.log(maxSubarray(array6));
+
+console.log(kadanesMaxSubarray(array1));
+// console.log(kadanesMaxSubarray(array2));
+// console.log(kadanesMaxSubarray(array3));
+// console.log(kadanesMaxSubarray(array4));
+// console.log(kadanesMaxSubarray(array5));
+// console.log(kadanesMaxSubarray(array6));
 
 
 module.exports = { maxSubarray, kadanesMaxSubarray };
