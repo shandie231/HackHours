@@ -28,9 +28,13 @@ function insertInterval(intervals, newInterval){
       //for single index input interval
       if(intervals[i+1] === undefined){
         if(newInterval[1] > intervals[i][1]){
-          intervals[i] = [intervals[i][0], newInterval[1]]
+          if(newInterval[0] < intervals[i][0]){
+            intervals[i] = newInterval;
+          }else{
+            intervals[i] = [intervals[i][0], newInterval[1]]
+          }
         }
-        if(newInterval[0] < intervals[i][0]){
+        if(newInterval[0] < intervals[i][0] && intervals[i-1] === undefined){
           if(newInterval[1] < intervals[i][0]){
             intervals.unshift(newInterval);
           }else{
@@ -39,12 +43,12 @@ function insertInterval(intervals, newInterval){
         }
         return intervals;
       }
-      if(newInterval[1] < intervals[i][1]){
+      if(newInterval[1] < intervals[i][1] && newInterval[0] < intervals[i][0]){
         intervals.unshift(newInterval);
         return intervals;
       }
 
-      if(intervals[i+1][0] > newInterval[1]){
+      if(intervals[i+1][0] > newInterval[1] && intervals[i][1] < newInterval[1]){
         console.log(i);
         console.log(intervals);
         intervals[i] = [intervals[i][0], newInterval[1]]
@@ -81,3 +85,5 @@ console.log(insertInterval([[1,5]], [6,8]));
 console.log(insertInterval([[1,5]], [0,3]));
 console.log(insertInterval([[1,5]], [0,0]));
 console.log(insertInterval([[2,5],[6,7],[8,9]], [0,1]));
+console.log(insertInterval([[0,5],[8,9]], [3,4]));
+console.log(insertInterval([[0,5],[9,12]], [7,16]));
