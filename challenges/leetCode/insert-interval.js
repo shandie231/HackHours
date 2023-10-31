@@ -88,3 +88,4 @@ console.log(insertInterval([[2,5],[6,7],[8,9]], [0,1]));
 console.log(insertInterval([[0,5],[8,9]], [3,4]));
 console.log(insertInterval([[0,5],[9,12]], [7,16]));
 //
+//
