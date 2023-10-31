@@ -26,7 +26,7 @@ const bstSum = root => {
   if(root.right !== null){
     count++;
      sum += bstSum(root.right);
-    
+    //
   }
 
 
