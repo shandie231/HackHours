@@ -39,16 +39,16 @@ const isValid = function(s){
       }
 
     }else if(s[i] === ']'){
-      if(!obj['[']) return false;
+      if(!obj['['] || s[i-1] === '{' || s[i-1] === '(' || s[i-1] === '<') return false;
       else obj['[']--;
     }else if(s[i] === '}'){
-      if(!obj['{']) return false;
+      if(!obj['{'] || s[i-1] === '(' || s[i-1] === '[' || s[i-1] === '<') return false;
       else obj['{']--;
     }else if(s[i] === ')'){
-      if(!obj['(']) return false;
+      if(!obj['('] || s[i-1] === '{' || s[i-1] === '[' || s[i-1] === '<') return false;
       else obj['(']--;
     }else if(s[i] === '>'){
-      if(!obj['<']) return false;
+      if(!obj['<'] || s[i-1] === '{' || s[i-1] === '[' || s[i-1] === '(') return false;
       else obj['<']--;
     }else return false;
   }
@@ -61,5 +61,29 @@ const isValid = function(s){
   return true;
 }
 
-console.log(isValid('{}[]()'));  
+console.log(isValid('{}[]()')); 
+console.log(isValid('([)]')) 
 console.log(isValid(''))
+console.log(isValid('{[]}')) 
+
+
+//better solution 
+const isValidB = function(s){
+  let stack = [];
+  for (let c of s){
+    if(c === '(' || c === '[' || c === '{'){
+      stack.push(c);
+    }else{
+      if(!stack.length 
+        || (c === ')' && stack[stack.length - 1] !== '(') 
+        || (c === ']' && stack[stack.length - 1] !== '[')
+        || (c === '}' && stack[stack.length - 1] !== '{')){
+          return false;
+        }
+        stack.pop();
+    }
+  }
+  return !stack.length;
+}
+
+console.log(isValidB('{}'))
