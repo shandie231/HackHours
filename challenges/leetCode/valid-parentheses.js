@@ -29,7 +29,37 @@ Output: false
  */
 
 const isValid = function(s){
-  
+  const obj = {};
+  for(let i = 0; i<s.length; i++){
+    if(s[i] === '[' || s[i] === '{' || s[i] === '(' || s[i] === '<'){
+      if(!obj[s[i]]){
+        obj[s[i]] = 1;
+      }else{
+        obj[s[i]] = obj[s[i]] + 1;
+      }
 
-  
-};
+    }else if(s[i] === ']'){
+      if(!obj['[']) return false;
+      else obj['[']--;
+    }else if(s[i] === '}'){
+      if(!obj['{']) return false;
+      else obj['{']--;
+    }else if(s[i] === ')'){
+      if(!obj['(']) return false;
+      else obj['(']--;
+    }else if(s[i] === '>'){
+      if(!obj['<']) return false;
+      else obj['<']--;
+    }else return false;
+  }
+  console.log(obj);
+  let values = Object.values(obj);
+  for(let i = 0; i<values.length; i++){
+    if(values[i] !== 0) return false;
+
+  }
+  return true;
+}
+
+console.log(isValid('{}[]()'));  
+console.log(isValid(''))
