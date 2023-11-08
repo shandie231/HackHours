@@ -69,5 +69,5 @@ class DoublyLinkedList implements ListType {
 
   }
 }
-
+console.log('hi')
 module.exports = { DoublyLinkedList };
