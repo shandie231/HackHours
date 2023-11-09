@@ -38,15 +38,11 @@ const lengthOfLongestSubstring = (s:string): number =>{
       i = start;
       substring = s[i];
     }
-    if(substring.length > maxLength){
-      maxLength = substring.length;
-    }
+    maxLength = Math.max(substring.length, maxLength);
 
   } 
 
   return maxLength;
-
-
 }
 
 console.log(lengthOfLongestSubstring("abcabcbb")); //abc
@@ -54,3 +50,22 @@ console.log(lengthOfLongestSubstring("bbbbb"));  //b
 console.log(lengthOfLongestSubstring("pwwkew"));
 console.log(lengthOfLongestSubstring("  "));  
 console.log(lengthOfLongestSubstring("aab"));  //wke
+
+
+const lengthOfLongestSubstringLeat = (s: string): number => {
+  const scanner: string[] = [];
+  let longest = 0;
+
+  for( const char of s){
+    const possibleIndex = scanner.indexOf(char);
+
+    if (possibleIndex !== -1) {
+      scanner.splice(0, possibleIndex + 1)
+    }
+    scanner.push(char);
+    longest = Math.max(longest, scanner.length);
+  }
+  return longest;
+} 
+
+console.log(lengthOfLongestSubstringLeat('abcabcbb'));
