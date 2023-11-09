@@ -24,13 +24,33 @@ Notice that the answer must be a substring, "pwke" is a subsequence and not a su
 */
 
 const lengthOfLongestSubstring = (s:string): number =>{
+  let substring: string = '';
+  const subStringArray: string[] = [];
+  let maxLength: number = 0;
+  let start: number = 0;
+  for(let i = 0; i<s.length; i++){
+    
+    if(!substring.includes(s[i])){
+      substring = substring + s[i];
+      
+    }else{
+      start++;
+      i = start;
+      substring = s[i];
+    }
+    if(substring.length > maxLength){
+      maxLength = substring.length;
+    }
+
+  } 
+
+  return maxLength;
 
 
-  
-
-  return s.length;
 }
 
 console.log(lengthOfLongestSubstring("abcabcbb")); //abc
 console.log(lengthOfLongestSubstring("bbbbb"));  //b
-console.log(lengthOfLongestSubstring("pwwkew"));  //wke
+console.log(lengthOfLongestSubstring("pwwkew"));
+console.log(lengthOfLongestSubstring("  "));  
+console.log(lengthOfLongestSubstring("aab"));  //wke
