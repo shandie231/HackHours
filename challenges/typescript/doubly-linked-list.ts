@@ -34,17 +34,17 @@ interface NodeType {
 /* 
 Class definitions for linked list and individual nodes
 */
-class ListNode implements NodeType {
-  val: number | string;
-  next: null | NodeType;
-  prev: null | NodeType;
+// class ListNode implements NodeType {
+//   val: number | string;
+//   next: null | NodeType;
+//   prev: null | NodeType;
 
-  constructor(val: number | string) {
-    this.val = val;
-    this.next = null;
-    this.prev = null;
-  }
-}
+//   constructor(val: number | string) {
+//     this.val = val;
+//     this.next = null;
+//     this.prev = null;
+//   }
+// }
 
 class DoublyLinkedList implements ListType {
   head: null | NodeType;
