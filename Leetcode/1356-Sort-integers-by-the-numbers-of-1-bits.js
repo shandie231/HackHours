@@ -34,5 +34,27 @@ var sortByBits = function(arr) {
   
   
 
-  
+
 };
+
+const determineOnes = (num) => {
+  let binary = [0,0,0,0,0,0,0,0];
+  let start = binary.length - 1;
+
+  for(let i = num; i > 0; i--){
+    if(binary[start] === 0){
+      binary[start] = 1;
+    }
+    if(binary[start] === 1){
+      binary[start - 1] = 1;
+      binary[start] = 0;
+      start -= 1;
+    }
+
+
+  }
+
+
+}
+
+console.log(determineOnes(8));
