@@ -13,8 +13,23 @@ fizzbuzz(16);
 */
 
 const fizzbuzz = num => {  
-  
+  if(typeof num !== 'number') console.log('not a number');
+   console.log(typeof num);
+  for(let i = 0; i< num; i++){
+    if(i % 3 === 0 && i % 5 === 0){
+      console.log('FizzBuzz')
+    }else if (i % 5 === 0){
+      console.log('Buzz');
+    }else if (i % 3 === 0){
+      console.log('Fizz');
+    }else{
+      console.log(i);
+    }
+  }
+  return;
 };
+console.log(fizzbuzz(15));
+console.log(fizzbuzz("15"));
 
 /*
 
