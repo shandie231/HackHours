@@ -15,8 +15,32 @@
   twoSum(nums, 9) -> false
   Rational: No elements inside the array sum up to the target number
 */
+const twoSum = (arr, target) => {
+  const cache = {};
+  for(let i = 0; i < arr.length; i++){
+    if(!cache[Math.abs(arr[i] - target)]){
+      cache[Math.abs(arr[i] - target)] = arr[i];
+      console.log(cache);
+    }
+    if(cache[arr[i]]){
+      return true;
+    }
+
+  }
+  return false;
+}
+
+console.log(twoSum([2,7,11,15], 9));
+console.log(twoSum([3,2,4], 6));
+console.log(twoSum([3,3], 6));
+console.log(twoSum([2,7,11,15], 10));
+console.log(twoSum([3,2,4], 6));
+console.log(twoSum([3,3], 1));
 
 
+
+
+/*
 const twoSum = (arr, target) => { 
   if(arr.length === 0) return underfined;
   const cache = new Map();
@@ -41,7 +65,7 @@ const nums2 = [11, 15, 2, 5]
 console.log(twoSum(nums2, 7));
 
 console.log(twoSum(nums, 9))// -> false
-
+*/
 /*
 
   Given an array of numbers and a target number,

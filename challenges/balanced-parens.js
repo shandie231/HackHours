@@ -25,35 +25,18 @@
  */
 
 const balancedParens = input => {
+    const stack = [];
+    const bracketPairs = { "(" : ")", "{" : "}", "[" : "]" };
 
-    const parens = new Map();
-
-    const onlyParens = input.replace(/[a-zA-Z0-9:=<>.]/g, '');
-    console.log(onlyParens);
-
-    for(const currentParen of onlyParens){
-        if(!parens.has(currentParen)){
-            parens.set(currentParen, 1);
-        }else{
-            parens.set(currentParen, parens.get(currentParen) + 1);
-        }
+    for(const char of input){
+        if(bracketPairs[char]) stack.push(bracketPairs[char]);
+        if(char === ")" && stack.pop() !== ")") return false;
+        if(char === "}" && stack.pop() !== "}") return false;
+        if(char === "]" && stack.pop() !== "]") return false;
     }
-    
-    const incommon = [...parens.keys()];
-    console.log(incommon)
-    for(const currentCommon of incommon){
-        switch (currentCommon){
-            case "[":
-            
-        }
-    }
+    return !stack.length;
 
 
-};
-
-
-console.log(balancedParens('[](){}'));
-//console.log(balancedParens(' const wow = { yo: thisIsAwesome() }'));
-//console.log(balancedParens(' const newton = () => { telescopes.areSicc(); '));
+}
 
 module.exports = { balancedParens} ;

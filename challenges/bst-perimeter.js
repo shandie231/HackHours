@@ -21,6 +21,7 @@ const outsideLeaf = (tree) => {
 
   const output = [];
   let leftHolder = tree.left;
+
   const leftSide =(tree) => {
     if(!tree) return;
 
@@ -28,8 +29,8 @@ const outsideLeaf = (tree) => {
     output.push(tree.value);
     leftSide(tree.left);
   }
+
   const rightSide = (tree) => {
-    const rightNums = [];
     if(!tree) return;
   
     if(tree.right === null) return output;

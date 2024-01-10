@@ -14,52 +14,46 @@
  * 
  */
 
+
 function Stack() {
-    let outputStack = [];
-    this.push = function(arg){
-        if(outputStack.length>0){
-            outputStack[outputStack.length] = arg;
-        }else{
-            outputStack[0] = arg;
-        }
-        return outputStack;
-    }
-    this.pop = function(){
-        const poppedStack = [];
-        if(outputStack.length<1){
-            return `Nothing in stack`;
-        }else{
-            for(let i = 0; i<outputStack.length -1; i++){
-                poppedStack[i] = outputStack[i];
-            }
-            outputStack = poppedStack;
-            return outputStack;
-        }
-    }
-    
-
-    
+    this.stack = {};
+    this.length = 0;
 }
 
-function Queue() {
-    const outputStack = [];
-    this.enqueue = function(arg){
-        
-    }
-    this.dequeue = function(){
-        
-    }
-
+Stack.prototype.push = (val) => {
+    this.stack[this.length] = val;
+    this.length++;
+    return this.length;
 }
-const newStack = new Stack();
 
-console.log(newStack.push(1));
-console.log(newStack.push(2));
-console.log(newStack.push(3));
+Stack.prototype.pop = () => {
+    if(!this.length) return;
 
-console.log(newStack.pop());
-console.log(newStack.pop());
-console.log(newStack.pop());
-console.log(newStack.pop());
+    const poppedVal = this.stack[this.length - 1];
+    delete this.stack[this.length - 1];
+    return poppedVal;
+}
+
+
+const Queue = () => {
+    this.stack1 = new Stack();
+    this.stack2 = new Stack();
+}
+
+Queue.prototype.enqueue = (val) => {
+    this.stack1.push(val);
+}
+
+Queue.prototype.dequeue = () => {
+    if(!this.stack1.length && !this.stack2.length) return;
+
+    if(!this.stack2.length) {
+        while(this.stack1.length){
+            this.stack2.push(this.stack1.pop());
+        }
+    }
+    return this.stack2.pop();
+}
+
 
 module.exports = { Stack, Queue };
